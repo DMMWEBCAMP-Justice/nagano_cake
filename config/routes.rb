@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :admins
   # devise_for :end_users
-  
+
 # 顧客用
 # URL /end_users/sign_in ...
 devise_for :end_users, skip: [:passwords], controllers: {
@@ -13,7 +13,7 @@ devise_for :end_users, skip: [:passwords], controllers: {
 devise_for :admins,  skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #end_user用
   root to: "homes#top"
@@ -26,12 +26,14 @@ devise_for :admins,  skip: [:registrations, :passwords] ,controllers: {
   get	'/end_users/finished' => 'end_users#finished'
 
   # get 'search' => 'searches#search'
-  resources :end_users, only:[:update] 
+
+  resources :end_users, only:[:update]
   resource :end_users, only:[:edit]
   resources :items, only:[:index, :show]
   resources :cart_items, only:[:index, :update, :destroy, :create]
   resources :orders, only:[:new, :create, :index, :show ]
   resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+
   #admin用
   namespace :admin do
    root to: "/homes#top"
@@ -42,8 +44,8 @@ devise_for :admins,  skip: [:registrations, :passwords] ,controllers: {
     resources :order_details, only:[:update]
    end
   end
-  
-  
-  
-  
+
+
+
+
 end
