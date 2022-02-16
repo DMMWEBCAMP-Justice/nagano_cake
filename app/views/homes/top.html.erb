@@ -1,0 +1,29 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h3>ジャンル検索</h3>
+      <br>ケーキ
+      <br>焼き菓子
+      <br>etc
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h3>ようこそ、ながのCAKEへ！
+      <br>このサイトは、ケーキ販売のECサイトになります。
+      <br>会員でない方も商品の閲覧はできますが、
+      <br>購入には会員登録が必要になります。</h3>
+      <h1>新着商品</h1>
+      <div class="d-flex p-2 bd-highlight">
+      <!-- @item = item.order(created_at: :desc).limit(4) で最新の４件取得 コントローラーに記載する
+        @item.each do |item|
+         link_to items_id_path do
+         image_tag item.get_image
+         end
+         item.item_name
+         item_price -->
+      </div>
+      <%=link_to items_path do %>
+      全ての商品を見る＞
+      <% end %>
+    </div>
+  </div>
+</div>
