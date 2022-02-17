@@ -13,6 +13,12 @@ class Admin::GenresController < ApplicationController
      @genres = Genre.all
      render 'index'
    end
+
+   def edit
+   end
+
+   def update
+   end
   end
 
   private
