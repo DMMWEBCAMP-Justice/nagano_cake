@@ -5,6 +5,14 @@ class Public::OrdersController < ApplicationController
    @end_user = current_end_user
    @address = Address.new
  end
+ 
+ def confirm
+  @order = Order.new(order_params)
+  @address = Address.find(params[:order][:address])
+  @order.postcode = current_end_user.postcode
+  @order.address = current_end_user.address
+  @order.name = current_end_user.first_name + current_end_user.last_name
+ end
 
  private
 
