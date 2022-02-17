@@ -10,7 +10,7 @@ devise_for :end_users, skip: [:passwords], controllers: {
 }
 # 管理者用
 # URL /admin/sign_in ...
-devise_for :admins,  skip: [:registrations, :passwords] ,controllers: {
+devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
@@ -27,13 +27,14 @@ devise_for :admins,  skip: [:registrations, :passwords] ,controllers: {
 
   # get 'search' => 'searches#search'
 
-  resources :end_users, only:[:update]
-  resource :end_users, only:[:edit]
-  resources :items, only:[:index, :show]
-  resources :cart_items, only:[:index, :update, :destroy, :create]
-  resources :orders, only:[:new, :create, :index, :show ]
-  resources :addresses, only:[:index, :edit, :create, :update, :destroy]
-
+  scope module: :public do
+    resources :end_users, only:[:update]
+    resource :end_users, only:[:edit]
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :update, :destroy, :create]
+    resources :orders, only:[:new, :create, :index, :show ]
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+  end
   #admin用
   namespace :admin do
    root to: "/homes#top"
