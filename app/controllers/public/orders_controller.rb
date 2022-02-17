@@ -5,20 +5,14 @@ class Public::OrdersController < ApplicationController
    @end_user = current_end_user
    @address = Address.new
  end
-
- def create
-  @order = Order.new(order_params)
-  @order.end_user_id = current_end_user.id
-  if @order.save
-   redirect_to orders_confirm_path
-  else
-   render:new
-  end
- end
  
  def confirm
+  @order = Order.new(order_params)
+  @address = Address.find(params[:order][:address_id])
+  @order.postcode = current_end_user.postcode
+  @order.address = current_end_user.address
+  @order.name = current_end_user.first_name + current_end_user.last_name
  end
- 
 
  private
 
