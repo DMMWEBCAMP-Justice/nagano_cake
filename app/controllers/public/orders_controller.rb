@@ -6,6 +6,20 @@ class Public::OrdersController < ApplicationController
    @address = Address.new
  end
 
+ def create
+  @order = Order.new(order_params)
+  @order.end_user_id = current_end_user.id
+  if @order.save
+   redirect_to orders_confirm_path
+  else
+   render:new
+  end
+ end
+ 
+ def confirm
+ end
+ 
+
  private
 
  def order_params
