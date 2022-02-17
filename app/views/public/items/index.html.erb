@@ -1,0 +1,34 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>ジャンル検索</h2>
+      <div class="d-flex flex-column bd-highlight mb-3">
+        <!-- renderを使う予定　Topページと-->
+        <div class="p-2 bd-highlight">ケーキ</div>
+        <div class="p-2 bd-highlight">プリン</div>
+        <div class="p-2 bd-highlight">焼き菓子</div>
+        <div class="p-2 bd-highlight">キャンディ</div>
+      </div>
+    </div>
+      <div class='col-md-8 offset-md-1'>
+        <h2>商品一覧</h2>(全<%= @items.count %>件)
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_image %>
+                <% end %>
+              </td>
+              <td>
+                <%= item.item_name %>
+              </td>
+              <td>
+                <%= item.price %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+        <%= paginate @items %>
+      </div>
+  </div>
+</div>
