@@ -10,6 +10,10 @@ class Public::AddressesController < ApplicationController
     redirect_to addresses_path
   end
 
+  def edit
+    @address = Address.find(params[:id])
+  end
+
   private
   def address_params
     params.require(:address).permit(:postcode, :address, :name)
