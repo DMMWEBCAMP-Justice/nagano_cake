@@ -7,7 +7,7 @@
        <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
              <div class="form-group">
                <h4>商品画像</h4>
-              　<%= f.file_field :image_id, accept: "image/*" %>
+              　<%= f.file_field :image, accept: "image/*" %>
              </div>
              <div class="form-group">
                <h4>商品名</h4>
@@ -19,7 +19,7 @@
              </div>
              <div class="form-group">
               　<h4>ジャンル</h4>
-                <!--%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, genre_name) %>-->
+                <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %>
            　</div>
              <div class="form-group">
                <h4>税抜価格</h4>
