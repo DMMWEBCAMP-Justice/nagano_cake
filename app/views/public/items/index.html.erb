@@ -4,6 +4,13 @@
       <h2>ジャンル検索</h2>
       <div class="d-flex flex-column bd-highlight mb-3">
         <!-- renderを使う予定　Topページと-->
+        <% @genres.each do |genre| %>
+         <tr>
+           <td>
+           <%= genre.genre_name %>
+           </td>
+         </tr>
+        <% end %>
         <div class="p-2 bd-highlight">ケーキ</div>
         <div class="p-2 bd-highlight">プリン</div>
         <div class="p-2 bd-highlight">焼き菓子</div>
