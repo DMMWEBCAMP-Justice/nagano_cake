@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.web_console.whitelisted_ips = '106.180.7.63'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -72,10 +73,11 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #config.hosts << "5cf0444a6f524972bec9d71a709aed49.vfs.cloud9.us-east-1.amazonaws.com"
-  config.hosts << "9d4c54a17b7146bb89af638acecd7810.vfs.cloud9.us-east-1.amazonaws.com"
-  config.hosts << "5cf0444a6f524972bec9d71a709aed49.vfs.cloud9.us-east-1.amazonaws.com"
+
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.hosts << "7e97b18fd3e5441c9647cd4764eb27a8.vfs.cloud9.us-east-1.amazonaws.com"
+
+config.hosts << "cf4fd20960e1417b9cad591d45dca4fb.vfs.cloud9.us-east-1.amazonaws.com"
+
 end
