@@ -1,22 +1,41 @@
 class Public::OrdersController < ApplicationController
 
  def new
-   @order = Order.new
-   @end_user = current_end_user
-   @address = Address.new
+  @order = Order.new
+  @end_user = current_end_user
+  @address = Address.new
+
  end
- 
+
+
  def confirm
   @order = Order.new(order_params)
   @address = Address.find(params[:order][:address])
   @order.postcode = current_end_user.postcode
   @order.address = current_end_user.address
   @order.name = current_end_user.first_name + current_end_user.last_name
+  if @order.invalid?
+   render :new
+  end
+ end
+
+ def create
+  @order = Order.new(order_params)
+  @order.end_user_id = current_end_user.id
+  @order.save
+  binding.pry
+ end
+
+ def complete
  end
 
  private
 
  def order_params
-   params.require(:order).permit(:postcode, :address, :name, :shipping_cost, :total_payment, :payment_method, :order_status)
+  params.require(:order).permit(:postcode, :address, :name, :shipping_cost, :total_payment, :payment_method, :order_status)
+ end
+
+ def address_params
+  params.require(:address).permit(:postcode, :address, :name)
  end
 end

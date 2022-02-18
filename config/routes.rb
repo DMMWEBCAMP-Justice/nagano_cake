@@ -21,12 +21,15 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
   get 'end_users/my_page' => 'sessions#show'
   patch '/end_users/withdraw' =>	'end_users#withdraw'
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-  post	'/orders/confirm' => 'orders#confirm'
-  get	'/orders/complete' => 'orders#complete'
+
+
   get	'/end_users/finished' => 'end_users#finished'
 
   # get 'search' => 'searches#search'
+
   scope module: :public do
+    get	'/orders/complete' => 'orders#complete'
+    post	'/orders/confirm' => 'orders#confirm'
     resources :end_users, only:[:update]
     resource :end_users, only:[:edit]
     resources :items, only:[:index, :show]
