@@ -25,7 +25,10 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     post	'/orders/confirm' => 'orders#confirm'
     get	'/orders/complete' => 'orders#complete'
     get	'/end_users/finished' => 'end_users#finished'
+
   # get 'search' => 'searches#search'
+
+  scope module: :public do
     resources :end_users, only:[:update]
     resource :end_users, only:[:edit]
     resources :items, only:[:index, :show]
@@ -43,9 +46,6 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     resources :order_details, only:[:update]
    end
   end
-
-
-
 
 
 
