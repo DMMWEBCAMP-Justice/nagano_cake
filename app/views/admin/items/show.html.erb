@@ -1,47 +1,56 @@
 
-  <h2>商品詳細</h2>
-    <table class="table table-hover table-inverse">
-     <thead>
-      <tr>
-       <th></th>
-       <th>商品名</th>
-       <th>商品説明</th>
-       <th>ジャンル</th>
-       <th>税込価格<br>（税抜価格）</th>
-       <th>販売ステータス</th>
+ <div class="container">
+  <div class="row">
+   <div class=" offset-3 col-md-6 ">
 
+    <h2>商品詳細</h2>
+    
        
 
-       <th colspan="５"></th>
-
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-
-          <td><%= image_tag @item.get_image, size: "100x100" %></td>
-          <td><%= @item.item_name %></td>
-          <td><%= @item.introduction %></td>
-
-          <td><%= @item.genre.genre_name %></td>
-          <td><%= (@item.with_tax_price).floor %><br>(<%= @item.price %>)</td>
-
-          
-
-
-          　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<!--税抜価格＝itemのprice-->
-          <td><% if @item.item_status %>
-                 <%= link_to '販売停止中', admin_item_path(@item.id, item: {item_status: false}), method: :put %>
+         <!--<div class="col-md-2">-->
+         <!--<#%= image_tag @item.get_image, size: "100x100" %>-->
+         <!--</div>-->
+       
+    <table class="table table-hover table-inverse">
+     
+       <tbody>
+       <tr>
+         <th><%= image_tag @item.get_image, size: "100x100" %></th>
+       </tr>
+       <tr>
+          <th>商品名</th>
+          <th><%= @item.item_name %></th>
+       </tr>
+       <tr>
+          <th>商品説明</th>
+          <th><%= @item.introduction %></th>
+       </tr>
+       <tr>
+          <th>ジャンル</th>
+          <th><%= @item.genre.genre_name %></th>
+       </tr>
+       <tr>
+          <th>税込価格<br>（税抜価格）</th>
+          <th><%= (@item.with_tax_price).floor %><br>(<%= @item.price %>)</th>
+       </tr>
+       <tr>
+          <th>販売ステータス</th>
+          <th><% if @item.item_status %>
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<%= link_to '販売停止中', admin_item_path(@item.id, item: {item_status: false}), method: :put %>
                <% else %>
                  <%= link_to '販売中', admin_item_path(@item.id, item: {item_status: true}), method: :put %>
                <% end %>
-          </td>
- 　　　　　　　　　　　　　　　　　　　　　　　　
-     　 </tr>
-    　</tbody>
-  　</table>
-
-
-  <%= link_to edit_admin_item_path(@item.id), class: 'btn btn-success btn-sm' do %>
-   編集<% end %>
+          </th>
+       </tr>
+     </tbody>
+ 　</table>
+ 　<div class="row justify-content-center">
+    <div class="col-4">
+       <%= link_to edit_admin_item_path(@item.id), class: 'btn btn-success btn-lg' do %>
+        編集<% end %>
+     </div>
+   </div>
+  </div>
  </div>
+</div>
+
