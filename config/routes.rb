@@ -16,7 +16,6 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #end_user用
-
     root to: "homes#top"
     get 'home/about'=>'homes#about'
   scope module: :public do
