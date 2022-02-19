@@ -1,32 +1,37 @@
-<div class="col-md-8 offset-md-1">
-  <h2>商品一覧</h2>
-    <table class="table table-hover table-inverse">
-     <thead>
-      <tr>
-       <th>商品ID</th>
-       <th>商品名</th>
-       <th>税抜価格</th>
-       <th>ジャンル</th>
-       <th>ステータス</th>
-       <th colspan="5"></th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-        <% @items.each do |item| %>
-          <td><%= item.id %></td>
-          <td><%= item.item_name %></td>
-          <td><%= item.price %></td>
-          <td><%= item.genre_name %></td>
-          <td><% if item.item_status %>
-               <%= link_to '販売停止中', item_path(item.id, item: {item_status: false}), method: :put %>
-              <% else %>
-               <%= link_to '販売中', item_path(item.id, item: {item_status: true}), method: :put %>
-              <% end %>
-          </td>
-        <% end %>
-     　 </tr>
-    　</tbody>
-  　</table>
-  　<%= paginate @items %>
- </div>
+<div class="container">
+ <div class="row">
+
+  <div class="col-md-12">
+    <h2>商品一覧</h2>
+      <table class="table table-hover table-inverse">
+       <thead>
+          <tr>
+           <th>商品ID</th>
+           <th>商品名</th>
+           <th>税抜価格</th>
+           <th>ジャンル</th>
+           <th>ステータス</th>
+           <th colspan="5"></th>
+          </tr>
+         </thead>
+         <tbody>
+          <% @items.each do |item| %>
+          <tr>
+              <td><%= item.id %></td>
+              <td><%= item.item_name %></td>
+              <td><%= item.price %></td>
+              <td><%= item.genre.genre_name %></td>
+              <td><% if item.item_status %>
+                     <%= link_to '販売停止中', admin_items_path(item.id, item: {item_status: false}), method: :get %>
+                  <% else %>
+                    <%= link_to '販売中', admin_items_path(item.id, item: {item_status: true}), method: :get %>
+                 <% end %>
+              </td>
+         　 </tr>
+         　<% end %>
+        　</tbody>
+      　</table>
+      　    <%= paginate @items %>
+     </div>
+    </div>
+  </div>

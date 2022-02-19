@@ -10,18 +10,18 @@
       <% end %>
       <h3 class="col-lg-4 text-center"style="background-color: #efefef">配送先登録/一覧</h3>
       <%= form_with model: @address do |f| %>
-        <div class="form-group row">
-          <label for="input-postcode" class="col-8 col-form-label">郵便番号(ハイフンなし)</label>
+        <div class="form-group row" >
+          <label for="input-postcode" class="col-8 col-form-label" >郵便番号(ハイフンなし)</label>
           <div id=input-postcode>
-            <%= f.text_field :postcode, class: 'form-control' %>
+            <%= f.text_field :postcode, placeholder: "0000000", class: 'form-control address_postcode' %>
           </div>
           <label for="input-address" class="col-8 col-form-label">住所</label>
           <div id=input-address>
-            <%= f.text_field :address, class: 'form-control' %>
+            <%= f.text_field :address, placeholder: "ケーキ県ケーキ市ケーキ町KKK-K", class: 'form-control address_address'  %>
           </div>
           <label for="input-name" class="col-8 col-form-label">宛名</label>
           <div id=input-name>
-            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.text_field :name, placeholder: "ケキ山ケキの介", class: 'form-control address_name' %>
           </div>
           <div>
             <%= f.submit '新規登録', class: "btn btn-success " %>
