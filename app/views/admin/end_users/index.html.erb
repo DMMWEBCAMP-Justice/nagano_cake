@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <div>
+      <h3>会員一覧</h3>
+      <table>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+          <% @end_users.each do |end_user| %>
+            <tr>
+              <td><%= end_user.id %></td>
+              <td><%= end_user.last_name %><%= end_user.first_name %></td>
+              <td><%= end_user.email %></td>
+              <td></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>
