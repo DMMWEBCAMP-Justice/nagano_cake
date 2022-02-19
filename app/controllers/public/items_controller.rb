@@ -1,11 +1,11 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).per(8)#1ページに8個表示する
     @genres = Genre.all
   end
 
   def show
-    
+
   end
 
   private

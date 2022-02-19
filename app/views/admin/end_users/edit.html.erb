@@ -1,55 +1,56 @@
-<div>
-  <div>
-    <div>
-      <h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="col-5"style="background-color: #efefef">
         <%= @end_user.last_name %>
         <%= @end_user.first_name %>
-        さんの会員情報
+        さんの会員情報編集
       </h3>
-      <table>
-        <tr>
+      <table class="col">
+        <tr height="50">
           <th>会員ID</th>
           <td><%= @end_user.id %></td>
         </tr>
         <%= form_with model: @end_user, method: :patch do |f| %>
-          <tr>
+          <tr height="50">
             <th>氏名</th>
-            <td>
-              <%= f.text_field :last_name %>
-              <%= f.text_field :first_name %>
+            <td class="form-row">
+                <%= f.text_field :last_name, class: "form-control col" %>
+                <%= f.text_field :first_name, class: "form-control col" %>
             </td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>フリガナ</th>
-            <td>
-              <%= f.text_field :last_name_kana %>
-              <%= f.text_field :first_name_kana %>
+            <td class="form-row">
+              <%= f.text_field :last_name_kana, class: "form-control col" %>
+              <%= f.text_field :first_name_kana, class: "form-control col" %>
             </td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>郵便番号</th>
-            <td><%= f.text_field :postcode %></td>
+            <td><%= f.text_field :postcode, class: "form-control" %></td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>住所</th>
-            <td><%= f.text_field :address %></td>
+            <td><%= f.text_field :address, class: "form-control" %></td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>電話番号</th>
-            <td><%= f.text_field :phone_number %></td>
+            <td><%= f.text_field :phone_number, class: "form-control" %></td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>メールアドレス</th>
-            <td><%= f.text_field :email %></td>
+            <td><%= f.text_field :email, class: "form-control" %></td>
           </tr>
-          <tr>
+          <tr height="50">
             <th>会員ステータス</th>
             <td>
 
             </td>
           </tr>
           <tr>
-            <td><%= f.submit '変更を保存' %></td>
+            <th></th>
+            <td align="right"><%= f.submit '変更を保存', class: "btn btn-success" %></td>
           </tr>
         <% end %>
       </table>
