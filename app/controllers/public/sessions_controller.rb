@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :customer_state, only: [:create]
+  before_action :end_user_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
   # GET /resource/sign_in
   # def new
@@ -19,14 +19,12 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  def end_user_status
+  def end_user_state
     @end_user = EndUser.find_by(email:params[:end_user][:email])
     return if !@end_user
-    if @end_user.valid_password?(params[:end_user][:password])
+    if @end_user.valid_password?(params[:end_user][:password]) && (@end_user.finished == true)
+      redirect_to new_end_user_registration_path
     end
-    #分岐記載する
-    #finishedがtrueだった場合、サインアップ画面に遷移する処理
-    #falseだった場合、createアクションの実施
   end
 
   # If you have extra params to permit, append them to the sanitizer.
