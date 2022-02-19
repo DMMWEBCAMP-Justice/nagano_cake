@@ -1,0 +1,31 @@
+<%= render 'public/layouts/header'%>
+<div class='container w-50'>
+   <h3>ジャンル一覧・追加</h3>
+   <%= form_with model: @genre ,url: admin_genres_path,method: :post,local:true do |f| %>
+    <div class="form-group">
+     <%= f.label :genre_name,'ジャンル名' %>
+     <%= f.text_field :genre_name, class: 'form-control genre_name' %>
+    </div>
+    <div class="form-group">
+    <%= f.submit '新規登録',class: 'btn btn-success' %>
+    <% end %>
+    </div>
+    <div class="row">
+     <table class='table table-hover table-inverse'>
+       <thead>
+        <tr>
+         <th>ジャンル</th>
+         <th></th>
+        </tr>
+       </thead>
+     <tbody>
+     <tr>
+      <% @genres.each do |genre| %>
+       <td><%= genre.genre_name %></td>
+       <td><%= link_to '編集する',edit_admin_genre_path(genre.id),class:"btn btn-success"%></td>
+     </tr>
+     <% end %>
+     </tbody>
+   　</table>
+    </div>
+</div>
