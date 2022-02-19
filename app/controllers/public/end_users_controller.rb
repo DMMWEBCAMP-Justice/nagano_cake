@@ -7,4 +7,5 @@ class Public::EndUsersController < ApplicationController
   def finished
     @user = current_end_user
   end
+
 end

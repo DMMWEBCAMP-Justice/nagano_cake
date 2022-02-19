@@ -25,7 +25,6 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     post	'/orders/confirm' => 'orders#confirm'
     get	'/orders/complete' => 'orders#complete'
     get	'/end_users/finished' => 'end_users#finished'
-
   # get 'search' => 'searches#search'
 
   scope module: :public do
