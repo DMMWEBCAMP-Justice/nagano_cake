@@ -9,10 +9,6 @@
             </td>
           </tr>
         <% end %>
-        <h3>ジャンル検索</h3>
-        <br>ケーキ
-        <br>焼き菓子
-        <br>etc
       </div>
     </div>
     <div class='col-md-8 offset-md-1'>
@@ -25,7 +21,7 @@
       <!--@item = item.order(created_at: :desc).limit(4) で最新の４件取得 コントローラーに記載する-->
         <% @items.each do |item| %>
           <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_image %>
+            <%= image_tag item.image, size: "50x50" %>
           <% end %>
           <% item.item_name %>
           <% item.price %>
