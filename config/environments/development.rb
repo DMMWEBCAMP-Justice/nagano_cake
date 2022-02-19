@@ -81,5 +81,8 @@ config.hosts << "9d4c54a17b7146bb89af638acecd7810.vfs.cloud9.us-east-1.amazonaws
 config.hosts << "cf4fd20960e1417b9cad591d45dca4fb.vfs.cloud9.us-east-1.amazonaws.com"
 config.hosts << "5cf0444a6f524972bec9d71a709aed49.vfs.cloud9.us-east-1.amazonaws.com"
 config.hosts << "7e97b18fd3e5441c9647cd4764eb27a8.vfs.cloud9.us-east-1.amazonaws.com"
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/develop
 end
