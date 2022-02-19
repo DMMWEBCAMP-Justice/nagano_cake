@@ -1,7 +1,6 @@
 class Public::CartItemsController < ApplicationController
  
  def index
-   @items = Item.all
    @cart_items = CartItem.all
    @caret_item = CartItem.find(params[:id])
  end
@@ -32,7 +31,7 @@ class Public::CartItemsController < ApplicationController
  def destroy_all
     @cart_item = CartItem.find(params[:id])
     if @cart_item.end_user_id == current_user.id
-      cart_item.destroy_all
+      @cart_item.destroy_all
       redirect_to cart_items_path
     end
  end

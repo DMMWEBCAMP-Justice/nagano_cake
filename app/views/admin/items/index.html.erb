@@ -15,8 +15,8 @@
           </tr>
          </thead>
          <tbody>
-             <% @items.each do |item| %>
-          <tr>
+           <% @items.each do |item| %>
+            <tr>
               <td><%= item.id %></td>
               <td><%= item.item_name %></td>
               <td><%= item.price %></td>
@@ -29,7 +29,7 @@
               </td>
               </td>
          　 </tr>
-         　 <% end %>
+         　<% end %>
         　</tbody>
       　</table>
       　    <%= paginate @items %>
