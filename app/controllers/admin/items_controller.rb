@@ -1,5 +1,10 @@
 class Admin::ItemsController < ApplicationController
 
+
+   def index
+     @items=Item.page(params[:page])
+   end
+
   def new
     @item = Item.new
   end
@@ -13,21 +18,18 @@ class Admin::ItemsController < ApplicationController
      end
   end
 
-  def index
-     @items=Item.page(params[:page])
-     
-  end
-  
+
+
   def show
      @item = Item.find(params[:id])
      @order_details = @item.order_details
   end
-  
+
   def edit
     @item=Item.find(params[:id])
-      redirect_to "edit"
+
   end
-  
+
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
@@ -42,7 +44,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_name, :price, :genre_id, :item_status,  :introduction, :image) 
+    params.require(:item).permit(:item_name, :price, :genre_id, :item_status,  :introduction, :image)
   end
 
 end
