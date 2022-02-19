@@ -15,10 +15,8 @@
           </tr>
          </thead>
          <tbody>
-
-             <% @items.each do |item| %>
+          <% @items.each do |item| %>
           <tr>
-
               <td><%= item.id %></td>
               <td><%= item.item_name %></td>
               <td><%= item.price %></td>
@@ -29,11 +27,8 @@
                     <%= link_to '販売中', admin_items_path(item.id, item: {item_status: true}), method: :get %>
                  <% end %>
               </td>
-              
          　 </tr>
-
-         　 <% end %>
-
+         　<% end %>
         　</tbody>
       　</table>
       　    <%= paginate @items %>
