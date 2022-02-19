@@ -2,7 +2,6 @@ class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
     @addresses = current_end_user.addresses
-    @myaddress = current_end_user.address
   end
 
   def create
