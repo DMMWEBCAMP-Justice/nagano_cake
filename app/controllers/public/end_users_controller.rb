@@ -4,4 +4,8 @@ class Public::EndUsersController < ApplicationController
     @user = current_end_user
   end
 
+  def finished
+    @user = current_end_user
+  end
+
 end
