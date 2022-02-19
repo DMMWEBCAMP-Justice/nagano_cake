@@ -19,7 +19,7 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     root to: "homes#top"
     get 'home/about'=>'homes#about'
   scope module: :public do
-    get 'end_users/my_page' => 'sessions#show'
+    get 'end_users/my_page' => 'end_users#show'
     patch '/end_users/withdraw' =>	'end_users#withdraw'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     post	'/orders/confirm' => 'orders#confirm'

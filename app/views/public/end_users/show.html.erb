@@ -3,10 +3,12 @@
  <div class='row'>
   <div class='col-md-6'>
     <h4>マイページ</h4>
-    <p>登録情報<%= link_to '編集する'edit_end_users_path(end_user), class : "btn btn-success" %></p>
+    <p>登録情報<%= link_to '編集する',edit_end_users_path(@user),class: "btn btn-success"%></p>
     <table>
       <tbody>
-        <tr></tr>
+        <tr>
+          <th></th>
+        </tr>
         <tr></tr>
       </tbody>
     </table>
