@@ -16,6 +16,7 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #end_user用
+
     root to: "homes#top"
     get 'home/about'=>'homes#about'
   scope module: :public do
@@ -26,6 +27,8 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     get	'/orders/complete' => 'orders#complete'
     get	'/end_users/finished' => 'end_users#finished'
   # get 'search' => 'searches#search'
+
+  scope module: :public do
     resources :end_users, only:[:update]
     resource :end_users, only:[:edit]
     resources :items, only:[:index, :show]
@@ -43,9 +46,6 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
     resources :order_details, only:[:update]
    end
   end
-
-
-
 
 
 
