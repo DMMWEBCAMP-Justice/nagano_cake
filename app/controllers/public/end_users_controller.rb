@@ -1,7 +1,6 @@
 class Public::EndUsersController < ApplicationController
 
   def show
-<<<<<<< HEAD
     @end_user = current_end_user
   end
 
@@ -20,13 +19,10 @@ class Public::EndUsersController < ApplicationController
     @end_user.update(finished: true)
     reset_session
     redirect_to root_path
-=======
-    @user = current_end_user
   end
 
   def finished
     @user = current_end_user
->>>>>>> 31a7c7d378ec8b93b7c84697b9dcdd883c661946
   end
 
 
