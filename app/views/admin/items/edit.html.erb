@@ -45,47 +45,31 @@
    <div class="offset-2 col-sm-8">
      <h2>商品編集</h2>
 
-     <table class="table table-hover table-inverse">
-       <tbody>
-          <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
-             <tr>
-                <th>商品画像</th>
-              　<th><%= f.file_field :image, accept: "image/*" %></th>
-             </tr>
-              <tr>
-               <th>商品名</th>
-               <th><%= f.text_field :item_name %></th>
-              </tr>
-              <tr>
-                <th>商品説明</th>
-                <th><%= f.text_area :introduction %></th>
-             </tr>
-              <tr>
-              　<th>ジャンル</th>
-                <th><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %></th>
-           　</tr>
-             <tr>
-               <th>税抜価格</th>
-               <th><%= f.text_field :price %>円</th>
-             </tr>
-              <tr>
-               <th><%= f.label :販売ステータス %></th>
-          　    <th> <%= f.radio_button :item_status, true %>
-          　         <%= f.label :"販売中", '販売中', value: true %>
-               </th>
-          　    <th>　<%= f.radio_button :item_status, false %>
-          　          <%= f.label :"販売停止中", '販売停止中', value: false %>
-          　    </th>
-          　 　</tr>
-          　</tbody>
-          </table>
+           <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch, local: true do |f| %>
+                <p>商品画像</p>
+              　<p><%= f.file_field :image, accept: "image/*" %></p>
+               <p>商品名</p>
+               <p><%= f.text_field :item_name %></p>
+                <p>商品説明</p>
+                <p><%= f.text_area :introduction %></p>
+              　<p>ジャンル</p>
+                <p><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %></p>
+               <p>税抜価格</p>
+               <p><%= f.text_field :price %>円</p>
+               <p><%= f.label :販売ステータス %></p>
+          　    <p><%= f.radio_button :item_status, true %>
+          　        <%= f.label :"販売中", '販売中', value: true %></p>
+          　    <p><%= f.radio_button :item_status, false %>
+          　        <%= f.label :"販売停止中", '販売停止中', value: false %></p>
+           
               <div class="row justify-content-center">
                 <div class="col-4">
                  <%= f.submit "変更を保存", class: 'btn btn-success btn-lg' %>
                 </div>
               </div>
-
-           <% end %>
+            </div>
+          </div>
+         <% end %>
 
        </div>
       </div>
@@ -93,10 +77,10 @@
 
 
 
-     　　 
 
-     　　　
-      
+
+
+
 
 
 >>>>>>> a6c2a1f7d5026aa5f16694e778f7db95b148d34c
