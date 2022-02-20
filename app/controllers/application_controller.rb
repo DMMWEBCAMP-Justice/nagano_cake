@@ -1,13 +1,19 @@
 class ApplicationController < ActionController::Base
- # before_action :authenticate_end_user!, except: [:top,:about,:index,:show]
- #before_action :authenticate_end_user!,except: [:top,:about,:index,:show]
  before_action :configure_permitted_parameters, if: :devise_controller?
 
 
   def after_sign_up_path_for(resource)
-    end_users_my_page_path(resource)
+    end_users_my_page_path
   end
-  #サインイン後にマイページに遷移してない。。。
+  #サインアップ後にマイページに遷移してない。。。
+
+  def after_sign_in_path_for(resource)
+   if current_admin
+      admin_orders_path
+   elsif current_end_user
+         root_path
+   end
+  end
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :end_user

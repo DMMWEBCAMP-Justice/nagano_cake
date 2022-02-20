@@ -1,22 +1,11 @@
 class Public::CartItemsController < ApplicationController
-
+before_action :authenticate_end_user!
  def index
    @cart_items = CartItem.all
    # @cart_items = current_end_user.cart_items
  end
 
  def create
-   @cart_item = current_end_user.cart_items.build(cart_item_params)
-   @cart_items = current_end_user.cart_items.all
-   @cart_items.each do |cart_item|
-    if cart_item.item_id == @cart_item.item_id
-      new_quantity = cart_item.quantity + @cart_item.quantity
-      cart_item.update(:amount, new_quantity)
-      @cart_item.delete
-    end
-  end
-  @cart_item.save
-  redirect_to :cart_items
 
  #    @cart_item =CartItem.find_by(id: @item.cart_item_id)
  #     if @cart_item.save
