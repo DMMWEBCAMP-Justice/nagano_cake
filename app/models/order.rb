@@ -9,4 +9,6 @@ class Order < ApplicationRecord
     price * amou
   end
 
+
 end
+

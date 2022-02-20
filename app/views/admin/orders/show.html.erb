@@ -1,1 +1,32 @@
+<h4>注文履歴詳細</h4>
+<div>購入者</div>
+<%= @order.end_user.first_name %><%= @order.end_user.last_name %>
+<div>注文日</div>
+<%= @order.create_at %>
+<div>配送先</div>
+〒<%= @order.postcode %><%= @order.address %>
+<br><%= @order.name %>
+<div>支払方法</div>
+<%= @order.payment_method %>
+<div>注文ステータス</div>
+<%= form_with model: @order_details, url: admin_order_details_path, local: true do |f| %>
+<%= f.select :order_status, Oder.order_statuses_i18n.invert {prompt: false} %>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>制作ステータス</th>
+    <th></th>
+  </tr>
+  <% @order_details.each do |order_details| %>
+  <tr>
+    <th><%= order_details.item.item_name %></th>
+    <th><%= order_details.item.price %></th>
+    <th><%= order_details.item.amount %></th>
+    <th><%= order_details.item.item_name %></th>
+    <th></th>
+  </tr>
+</table>
 
