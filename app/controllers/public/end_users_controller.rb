@@ -4,7 +4,6 @@ class Public::EndUsersController < ApplicationController
     @end_user = current_end_user
   end
 
-
   def finished
     @end_user = current_end_user
   end
@@ -26,14 +25,6 @@ class Public::EndUsersController < ApplicationController
 
   def end_user_params
     params.require(:end_user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :phone_number, :email)
-  end
-
-  def finished
-    @user = current_end_user
-  end
-
-  def finished
-    @user = current_end_user
   end
 
 end
