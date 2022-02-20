@@ -2,6 +2,14 @@
  <div class="row">
 
   <div class="col-md-12">
+      　　<div class="text-right">
+          <%= link_to new_admin_item_path do %>
+            <%= image_tag 'add-circle-outline', size: "30x30" %>
+          <% end %>
+         </div>
+       
+
+
     <h2>商品一覧</h2>
       <table class="table table-hover table-inverse">
        <thead>
@@ -18,20 +26,27 @@
           <% @items.each do |item| %>
           <tr>
               <td><%= item.id %></td>
-              <td><%= item.item_name %></td>
+              <td><%= link_to item.item_name, admin_item_path(item.id) %></td>
               <td><%= item.price %></td>
               <td><%= item.genre.genre_name %></td>
-              <td><% if item.item_status %>
-                     <%= link_to '販売停止中', admin_items_path(item.id, item: {item_status: false}), method: :get %>
-                  <% else %>
-                    <%= link_to '販売中', admin_items_path(item.id, item: {item_status: true}), method: :get %>
-                 <% end %>
+              <td><%= item.item_status ? '販売停止中': '販売中' %>
               </td>
+              <!--<td><#% if item.item_status %>-->
+              <!--       <#%= link_to '販売停止中', admin_items_path(item.id, item: {item_status: false}), method: :get %>-->
+              <!--    <#% else %>-->
+              <!--      <#%= link_to '販売中', admin_items_path(item.id, item: {item_status: true}), method: :get %>-->
+              <!--   <#% end %>-->
          　 </tr>
          　<% end %>
         　</tbody>
       　</table>
+      　<div class="row justify-content-center">
+          <div class="col-4">
       　    <%= paginate @items %>
+         </div>
+       </div>
      </div>
     </div>
   </div>
+
+
