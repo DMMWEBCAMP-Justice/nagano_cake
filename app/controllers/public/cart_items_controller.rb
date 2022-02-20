@@ -1,20 +1,10 @@
 class Public::CartItemsController < ApplicationController
-before_action :authenticate_end_user!
+#before_action :authenticate_end_user!
  def index
    @cart_items = CartItem.all
    # @cart_items = current_end_user.cart_items
  end
 
- def create
-
- #    @cart_item =CartItem.find_by(id: @item.cart_item_id)
- #     if @cart_item.save
- #  1. 追加した商品がカート内に存在するかの判別
- #    存在した場合
- #      2. カート内の個数をフォームから送られた個数分追加する
- #    else
- #      @cart_item = CartItem.new
- end
 
  def update
    @cart_item = Cartitem.find(params[:id])
