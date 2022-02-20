@@ -11,7 +11,7 @@
           <th>会員ID</th>
           <td><%= @end_user.id %></td>
         </tr>
-        <%= form_with model: @end_user, method: :patch do |f| %>
+        <%= form_with model: @end_user do |f| %>
           <tr height="50">
             <th>氏名</th>
             <td class="form-row">

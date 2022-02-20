@@ -6,5 +6,8 @@ class EndUser < ApplicationRecord
          has_many :orders, dependent: :destroy
          has_many :addresses, dependent: :destroy
          has_many :cart_items, dependent: :destroy
-         
+
+  validates :postcode, presence: true, uniqueness: true, length: { minimum: 7, maximum: 7 }
+  validates :address, presence: true, uniqueness: true
+
 end
