@@ -13,6 +13,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[6.1]
       t.string :postcode,null: false, default: ""
       t.string :address,null: false, default: ""
       t.string :phone_number,null: false, default: ""
+      t.boolean :finished,null: false, default: "false"
       
       
       
