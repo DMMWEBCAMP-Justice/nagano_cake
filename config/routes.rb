@@ -46,7 +46,4 @@ devise_for :admin,  skip: [:registrations, :passwords] ,controllers: {
    end
   end
 
-
-
-
 end
