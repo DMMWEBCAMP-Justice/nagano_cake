@@ -29,14 +29,8 @@
               <td><%= link_to item.item_name, admin_item_path(item.id) %></td>
               <td><%= item.price %></td>
               <td><%= item.genre.genre_name %></td>
-              <td><%= item.item_status ? '販売停止中': '販売中' %>
-              </td>
-              <!--<td><#% if item.item_status %>-->
-              <!--       <#%= link_to '販売停止中', admin_items_path(item.id, item: {item_status: false}), method: :get %>-->
-              <!--    <#% else %>-->
-              <!--      <#%= link_to '販売中', admin_items_path(item.id, item: {item_status: true}), method: :get %>-->
-              <!--   <#% end %>-->
-         　 </tr>
+              <td><%= item.item_status ? '販売停止中' : '販売中' %></td>
+           </tr>
          　<% end %>
         　</tbody>
       　</table>

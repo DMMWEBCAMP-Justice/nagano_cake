@@ -33,11 +33,12 @@
        </tr>
        <tr>
           <th>販売ステータス</th>
-          <th><% if @item.item_status %>
+          <th><% if @item.item_status==false %>
                  <%= link_to '販売停止中', admin_item_path(@item.id, item: {item_status: false}), method: :put %>
                <% else %>
                  <%= link_to '販売中', admin_item_path(@item.id, item: {item_status: true}), method: :put %>
                <% end %>
+          </th>
           </th>
        </tr>
      </tbody>
