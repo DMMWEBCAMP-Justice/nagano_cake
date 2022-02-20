@@ -34,6 +34,12 @@
             <th width="50%">住所</th>
             <th width="15%">宛名</th>
             <th width="25%"></th>
+            <tr height="50">
+              <td><%= current_end_user.postcode %></td>
+              <td><%= current_end_user.address %></td>
+              <td><%= current_end_user.last_name %><%= current_end_user.first_name %></td>
+              <td></td>
+            </tr>
           </tr>
           <% @addresses.each do |address| %>
             <tr height="50">
