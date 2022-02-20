@@ -5,7 +5,19 @@ class Public::CartItemsController < ApplicationController
    # @cart_items = current_end_user.cart_items
  end
 
- # def create
+ def create
+   @cart_item = current_end_user.cart_items.build(cart_item_params)
+   @cart_items = current_end_user.cart_items.all
+   @cart_items.each do |cart_item|
+    if cart_item.item_id == @cart_item.item_id
+      new_quantity = cart_item.quantity + @cart_item.quantity
+      cart_item.update(:amount, new_quantity)
+      @cart_item.delete
+    end
+  end
+  @cart_item.save
+  redirect_to :cart_items
+
  #    @cart_item =CartItem.find_by(id: @item.cart_item_id)
  #     if @cart_item.save
  #  1. 追加した商品がカート内に存在するかの判別
@@ -13,13 +25,13 @@ class Public::CartItemsController < ApplicationController
  #      2. カート内の個数をフォームから送られた個数分追加する
  #    else
  #      @cart_item = CartItem.new
- # end
+ end
 
  def update
    @cart_item = Cartitem.find(params[:id])
     if @cart_item.update(cart_item_params)
       redirect_to cart_item_path(@cart_item.id)
-       
+
     end
  end
 
