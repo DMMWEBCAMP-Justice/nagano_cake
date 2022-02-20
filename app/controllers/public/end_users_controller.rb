@@ -1,7 +1,19 @@
 class Public::EndUsersController < ApplicationController
 
   def show
-    @user = current_end_user
+    @end_user = current_end_user
+  end
+
+
+  def finished
+    @end_user = current_end_user
+  end
+
+  def withdraw
+    @end_user = current_end_user
+    @end_user.update(finished: true)
+    reset_session
+    redirect_to root_path
   end
 # 管理者側で編集機能を追加する際に必要な記述です。これ書いたら正常に動作しました。
   def update
