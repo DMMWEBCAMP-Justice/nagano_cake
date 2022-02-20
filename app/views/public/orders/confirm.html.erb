@@ -1,0 +1,35 @@
+<h4>注文情報確認</h4>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>単価</th>
+    <th>数量</th>
+    <th>小計</th>
+  </tr>
+</table>
+<tbody>
+  <% @cart_item.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.item_name %></td>
+    <td><%= cart_item.item.with_tax_price%></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.subtotal%></td>
+  </tr>
+  <% end %>
+</tbody>
+<br>送料800
+<br>商品合計<%=  %>
+<br>請求金額<%= +800 %>
+
+<br>支払方法<%= @order.payment_method %>
+
+
+<br>お届け先<%= @order.postcode %><%= @order.address %>
+<br><%= @order.name %>
+
+<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+<%= f.hidden_field :postcode, :value => @order.postcode %>
+<%= f.hidden_field :address, :value => @order.address %>
+<%= f.hidden_field :name, :value => @order.name %>
+
+<%= f.submit "注文を確定する" ,class: 'btn btn-primary' %>
