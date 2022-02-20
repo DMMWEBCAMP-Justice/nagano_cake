@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-before_action :authenticate_end_user!
+#before_action :authenticate_end_user!
  def index
    @cart_items = CartItem.all
    # @cart_items = current_end_user.cart_items
