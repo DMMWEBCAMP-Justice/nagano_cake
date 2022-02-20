@@ -2,11 +2,6 @@ class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
 
 
-  def after_sign_up_path_for(resource)
-    end_users_my_page_path
-  end
-  #サインアップ後にマイページに遷移してない。。。
-
   def after_sign_in_path_for(resource)
    if current_admin
       admin_orders_path
