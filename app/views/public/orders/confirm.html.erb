@@ -26,10 +26,11 @@
 
 <br>お届け先<%= @order.postcode %><%= @order.address %>
 <br><%= @order.name %>
-
+<%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
 <%= f.hidden_field :payment_method, :value => @order.payment_method %>
 <%= f.hidden_field :postcode, :value => @order.postcode %>
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :name, :value => @order.name %>
 
-<%= f.submit "注文を確定する" ,class: 'btn btn-primary' %>
+<%= f.submit "注文を確定する" %>
+<% end %>

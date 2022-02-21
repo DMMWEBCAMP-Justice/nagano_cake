@@ -3,14 +3,24 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @address = Address.new
+    @end_user = current_end_user
   end
 
   def confirm
     @order = Order.new(order_params)
-    @address = Address.find(params[:order][:address_id])
-    @order.postcode = @address.postcode
-    @order.address = @address.address
-    @order.name = @address.name
+    @order.end_user_id = current_end_user.id
+    if params[:order][:address_pass] == "0"
+      @order.postcode = current_end_user.postcode
+      @order.address = current_end_user.address
+      @order.name = current_end_user.first_name + current_end_user.last_name
+
+    elsif params[:order][:address_pass] == "1"
+      @order.postcode = Address.find(params[:order][:address]).postcode
+      @order.address = Address.find(params[:order][:address]).address
+      @order.name = Address.find(params[:order][:address]).name
+    else
+    end
+
   end
 
   def index
