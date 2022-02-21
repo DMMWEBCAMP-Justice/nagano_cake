@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h3 class="col-5"style="background-color: #efefef">
+      <h3 style="background-color: #efefef">
         <%= @end_user.last_name %>
         <%= @end_user.first_name %>
         さんの会員情報編集
@@ -11,7 +11,7 @@
           <th>会員ID</th>
           <td><%= @end_user.id %></td>
         </tr>
-        <%= form_with model: @end_user, method: :patch do |f| %>
+        <%= form_with model: @end_user do |f| %>
           <tr height="50">
             <th>氏名</th>
             <td class="form-row">
@@ -45,7 +45,8 @@
           <tr height="50">
             <th>会員ステータス</th>
             <td>
-
+              有効<%= f.radio_button :finished, "false" %>
+              退会<%= f.radio_button :finished, "true" %>
             </td>
           </tr>
           <tr>
