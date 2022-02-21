@@ -9,11 +9,11 @@
   <h2>お届け先</h2>
   <%= f.radio_button :address_pass, 0, checked: "checked" %>
   <%= f.label :address, 'ご自身の住所', value: 0 %>　　　　<!--各ボタンに番号を割り振り、コントローラーで場合分けする。-->
-  <%= current_end_user.postcode %><% current_end_user.address %><br><%= current_end_user.last_name %><%= current_end_user.first_name %><br>
-  <%= f.radio_button :address_pass, 1, checked: "checke" %>
+  <%= current_end_user.postcode %><% @end_user.address %><br><%= @end_user.last_name %><%= @end_user.first_name %><br>
+  <%= f.radio_button :address_pass, 1 %>
   <%= f.label :address, "登録済住所から選択", value: 1 %><br>
   <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address) %><br>
-  <%= f.radio_button :address_pass, 2, checked: "checked" %>
+  <%= f.radio_button :address_pass, 2 %>
   <%= f.label :address, "新しいお届け先", value: 2 %><br>
 
     <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
