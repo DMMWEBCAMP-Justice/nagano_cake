@@ -11,7 +11,7 @@
         order_status:
           waiting: "入金待ち"
           paid: "入金確認"
-          maiking:　"製作中"
+          maiking: "製作中"
           prepare: "発送準備中"
           shipped: "発送済み"
 
