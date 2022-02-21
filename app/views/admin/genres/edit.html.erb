@@ -1,5 +1,4 @@
-<%= render 'public/layouts/header'%>
- <div class='container w-50'>
+<div class='container w-50'>
    <h3>ジャンル編集</h3>
     <%= form_with model: @genre ,url: admin_genre_path,method: :patch,local:true do |f| %>
      <div class="field">

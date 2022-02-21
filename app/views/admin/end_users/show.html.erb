@@ -43,7 +43,7 @@
         </tr>
         <tr height="50">
           <th>会員ステータス</th>
-          <td align="right"></td>
+          <td align="right"><%= @end_user.finished ? '退会' : '有効' %></td>
         </tr>
         <tr>
            <td align="center"><%= link_to '編集する', edit_admin_end_user_path(@end_user.id), class: "btn btn-sm btn-success" %></td>
