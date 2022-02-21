@@ -8,7 +8,6 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-
     @shipping_cost = 800
     if params[:address_pass] == "0"
       @order.postcode = current_end_user.postcode
@@ -49,7 +48,9 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_details = current_end_user.order_details
+    @order_details = @order.order_details
+    @shipping_cost = 800
+    @total = @order.total_payment
   end
 
   private

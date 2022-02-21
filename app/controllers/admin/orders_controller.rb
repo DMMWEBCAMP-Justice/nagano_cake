@@ -6,7 +6,6 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @total_price = Order.total_payment
   end
 
   private
