@@ -31,7 +31,9 @@
           <tr height="50">
             <th  bgcolor="#efefef" width="30%">商品合計</th>
             <td>
-              わからん
+              <% @order_detail.each do |order_detail| %>
+                <% @total_price += order_detail.subtotal %>
+              <% end %>
             </td>
           </tr>
           <tr height="50">
@@ -40,7 +42,7 @@
           </tr>
           <tr height="50">
             <th bgcolor="#efefef" >ご請求額</th>
-            <td>わからん</td>
+            <td><% @total_price + 800 %></td>
           </tr>
         </table>
       </div>
