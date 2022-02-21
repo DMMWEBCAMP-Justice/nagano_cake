@@ -8,18 +8,19 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @order.end_user_id = current_end_user.id
     @shipping_cost = 800
-    if params[:order][:address_pass] == "0"
+    if params[:address_pass] == "0"
       @order.postcode = current_end_user.postcode
       @order.address = current_end_user.address
       @order.name = current_end_user.last_name + current_end_user.first_name
 
-    elsif params[:order][:address_pass] == "1"
-      @order.postcode = Address.find(params[:order][:address]).postcode
-      @order.address = Address.find(params[:order][:address]).address
-      @order.name = Address.find(params[:order][:address]).name
+    elsif params[:address_pass] == "1"
+      address = Address.find(params[:address_id])
+      @order.postcode = address.postcode
+      @order.address = address.address
+      @order.name = address.name
     else
+
     end
     @cart_items = CartItem.where(end_user_id: current_end_user.id)
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
@@ -47,7 +48,9 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_details = current_end_user.order_details
+    @order_details = @order.order_details
+    @shipping_cost = 800
+    @total = @order.total_payment
   end
 
   private
