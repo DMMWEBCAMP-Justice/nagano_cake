@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-start">
+     <h2 class="col-md-2 text-center"style="background-color: #efefef">商品編集</h2>
+  </div>
+</div>
+     <div class="container">
+      <div class="row justify-content-center">
 
-   <div class="col-sm-12 col-md-10 col-lg-5 px-5 px-sm-0 mx-auto">
-     <h2>商品編集</h2>
+          <div calss="col-4">
 
            <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch, local: true do |f| %>
               <div class="form-group">
