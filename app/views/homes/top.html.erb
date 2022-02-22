@@ -10,7 +10,6 @@
       <br>購入には会員登録が必要になります。</p>
       <h3>新着商品</h3>
       <div class="d-flex p-2 bd-highlight">
-      <!--@item = item.order(created_at: :desc).limit(4) で最新の４件取得 コントローラーに記載する-->
         <% @items.each do |item| %>
           <%= link_to item_path(item.id) do %>
             <%= image_tag item.image, size: "50x50" %>
