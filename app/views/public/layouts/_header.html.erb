@@ -2,8 +2,9 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class= "container">
           <a class="navbar-brand" href="https://5cf0444a6f524972bec9d71a709aed49.vfs.cloud9.us-east-1.amazonaws.com/">
-            <span><%=link_to "Nagano Cake", root_path %></span>
-
+            <span><%= link_to root_path do %>
+            <%= image_tag 'rogo1', size: "90x90" %>
+            Nagano Cake<% end %></span>
           </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
