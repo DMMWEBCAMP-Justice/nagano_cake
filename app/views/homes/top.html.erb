@@ -9,17 +9,24 @@
       <br>会員でない方も商品の閲覧はできますが、
       <br>購入には会員登録が必要になります。</p>
     </div>
-
-      <h3>新着商品</h3>
-      <div class="d-flex p-2 bd-highlight">
-        <% @items.each do |item| %>
-          <%= link_to item_path(item.id) do %>
-            <%= image_tag item.image, size: "50x50" %>
-          <% end %>
-          <%= item.item_name %>
-          ¥<%= item.price %>
+    <div class='col-md-12'>
+     <table>
+       <tr>
+        <h3>新着商品</h3>
+       </tr>
+      <!--<div class="d-flex p-2 bd-highlight">-->
+        <tr>
+          <td><% @items.each do |item| %>
+              <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image, size: "50x50" %>
+              <% end %></td>
+          </tr>
+          <tr><td><%= item.item_name %></td></tr>
+         <tr><td>¥<%= item.price %></td></tr>
         <% end %>
-      </div>
+      <!--</div>-->
+      </table>
+    </div>
         <div class ="text-right">
          <%=link_to items_path do %>
            全ての商品を見る＞
