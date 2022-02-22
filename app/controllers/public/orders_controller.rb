@@ -8,7 +8,6 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-
     @shipping_cost = 800
     if params[:address_pass] == "0"
       @order.postcode = current_end_user.postcode
