@@ -1,16 +1,18 @@
 <h4>注文履歴詳細</h4>
 <div>購入者</div>
-<%= @order.end_user.first_name %><%= @order.end_user.last_name %>
+<%= @order.end_user.last_name %><%= @order.end_user.first_name %>
 <div>注文日</div>
-<%= @order.create_at %>
+<%= @order.created_at.strftime('%Y/%m/%d') %>
 <div>配送先</div>
 〒<%= @order.postcode %><%= @order.address %>
 <br><%= @order.name %>
 <div>支払方法</div>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 <div>注文ステータス</div>
-<%= form_with model: @order_details, url: admin_order_details_path, local: true do |f| %>
-<%= f.select :order_status, Oder.order_statuses_i18n.invert {prompt: false} %>
+<%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+  <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false} %>
+  <%= f.submit "更新" ,class: "btn btn-primary" %>
+<% end %>
 <table>
   <tr>
     <th>商品名</th>
@@ -20,13 +22,25 @@
     <th>制作ステータス</th>
     <th></th>
   </tr>
-  <% @order_details.each do |order_details| %>
+
+  <% @order_details.each do |order_detail| %>
   <tr>
-    <th><%= order_details.item.item_name %></th>
-    <th><%= order_details.item.price %></th>
-    <th><%= order_details.item.amount %></th>
-    <th><%= order_details.item.item_name %></th>
+    <th><%= order_detail.item.item_name %></th>
+    <th><%= order_detail.item.with_tax_price %></th>
+    <th><%= order_detail.amount %></th>
+    <th><%= order_detail.item.with_tax_price * order_detail.amount %></th>
+    <th>
+      <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(order_id: @order.id, id: order_detail.id), method: :patch, local: true) do |f| %>
+       <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false} %>
+       <%= f.hidden_field :order_detail_id, :value => order_detail.making_status %>
+       <%= f.submit "更新" ,class: "btn btn-primary" %>
+      <% end %>
+    </th>
     <th></th>
+  <% end %>
   </tr>
 </table>
+<div>商品合計 <%= @order.total_payment - @order.shipping_cost%></div>
+<div>送料 <%= @order.shipping_cost %></div>
+<div>請求金額 <%= @order.total_payment %></div>
 
