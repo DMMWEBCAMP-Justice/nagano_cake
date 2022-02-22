@@ -1,13 +1,10 @@
-<div class="container">
-  <div class="row justify-content-start">
-     <h2 class="col-md-2 text-center"style="background-color: #efefef">商品編集</h2>
-  </div>
-</div>
+
+
      <div class="container">
       <div class="row justify-content-center">
 
           <div calss="col-4">
-
+           <h2 class="col-md-5 text-center"style="background-color: #efefef">商品編集</h2>
            <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch, local: true do |f| %>
               <div class="form-group">
                 <p>商品画像
@@ -43,11 +40,9 @@
             <% end %>
            </div>
          </div>
-
-
        </div>
       </div>
-     </div>
+    </div>
 
 
 
