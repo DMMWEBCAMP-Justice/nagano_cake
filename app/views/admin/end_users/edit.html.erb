@@ -1,60 +1,64 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h3 style="background-color: #efefef">
+    <div class="col-10">
+      <h3><span style="background-color: #efefef">
         <%= @end_user.last_name %>
         <%= @end_user.first_name %>
         さんの会員情報編集
-      </h3>
-      <table class="col">
-        <tr height="50">
-          <th>会員ID</th>
-          <td><%= @end_user.id %></td>
-        </tr>
+      </span></h3>
+      <div>
+        <div class="d-flex bd-highlight mb-3">
+          <div class="mr-auto p-2 bd-highlight font-weight-bold">会員ID</div>
+          <div class="p-2 bd-highlight"><%= @end_user.id %></div>
+        </div>
         <%= form_with model: @end_user do |f| %>
-          <tr height="50">
-            <th>氏名</th>
-            <td class="form-row">
-                <%= f.text_field :last_name, class: "form-control col" %>
-                <%= f.text_field :first_name, class: "form-control col" %>
-            </td>
-          </tr>
-          <tr height="50">
-            <th>フリガナ</th>
-            <td class="form-row">
+          <div class="d-flex bd-highlight mb-3">
+           <div class="mr-auto p-2 bd-highlight font-weight-bold">氏名</div>
+             <div class="p-2 bd-highlight">
+               <%= f.text_field :last_name, class: "form-control col" %>
+             </div>
+             <div class="p-2 bd-highlight">
+               <%= f.text_field :first_name, class: "form-control col" %>
+             </div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">フリガナ</div>
+              <div class="p-2 bd-highlight">
               <%= f.text_field :last_name_kana, class: "form-control col" %>
+            </div>
+            <div class="p-2 bd-highlight">
               <%= f.text_field :first_name_kana, class: "form-control col" %>
-            </td>
-          </tr>
-          <tr height="50">
-            <th>郵便番号</th>
-            <td><%= f.text_field :postcode, class: "form-control" %></td>
-          </tr>
-          <tr height="50">
-            <th>住所</th>
-            <td><%= f.text_field :address, class: "form-control" %></td>
-          </tr>
-          <tr height="50">
-            <th>電話番号</th>
-            <td><%= f.text_field :phone_number, class: "form-control" %></td>
-          </tr>
-          <tr height="50">
-            <th>メールアドレス</th>
-            <td><%= f.text_field :email, class: "form-control" %></td>
-          </tr>
-          <tr height="50">
-            <th>会員ステータス</th>
-            <td>
-              有効<%= f.radio_button :finished, "false" %>
-              退会<%= f.radio_button :finished, "true" %>
-            </td>
-          </tr>
-          <tr>
-            <th></th>
-            <td align="right"><%= f.submit '変更を保存', class: "btn btn-success" %></td>
-          </tr>
+            </div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">郵便番号</div>
+            <div class="p-2 bd-highlight"><%= f.text_field :postcode, class: "form-control col" %></div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">住所</div>
+            <div class="p-2 bd-highlight"><%= f.text_field :address, class: "form-control col" %></div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">電話番号</div>
+            <div class="p-2 bd-highlight"><%= f.text_field :phone_number, class: "form-control col" %></div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">メールアドレス</div>
+            <div class="p-2 bd-highlight"><%= f.text_field :email, class: "form-control col" %></div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight font-weight-bold">会員ステータス</div>
+            <div class="p-2 bd-highlight">
+              有効<%= f.radio_button :finished, "false", class: "form-check-label" %>
+              退会<%= f.radio_button :finished, "true", class: "form-check-label" %>
+            </div>
+          </div>
+          <div>
+            <div></div>
+            <div align="right"><%= f.submit '変更を保存', class: "btn btn-success" %></div>
+          </div>
         <% end %>
-      </table>
+      </div>
     </div>
   </div>
 </div>
