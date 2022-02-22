@@ -1,28 +1,89 @@
-<h4>注文情報入力</h4>
-<%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
-  <h2>支払い方法</h2>
-  <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-  <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
-  <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-  <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4><span style="background-color: #efefef">注文情報入力</span></h4>
+      <%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
+        <h5 class="font-weight-bold">支払方法</h5>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+              <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+              <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+        <h5 class="font-weight-bold">お届け先</h5>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= radio_button_tag :address_pass, 0, checked: "checked" %>
+              <%= label_tag :address_pass_0, 'ご自身の住所' %>　　　　<!--各ボタンに番号を割り振り、コントローラーで場合分けする。-->
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div>
+              〒<%= current_end_user.postcode %>&ensp; <%= current_end_user.address %>
+            </div>
+            <div></div>
+          </div>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= current_end_user.last_name %><%= current_end_user.first_name %>
+            </div>
+            <div></div>
+          </div>
+          <br>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= radio_button_tag :address_pass, 1 %>
+              <%= label_tag :address_pass_1, "登録済住所から選択" %>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="d-flex justify-content-around">
+            <%= select_tag :address_id, options_from_collection_for_select(current_end_user.addresses, :id, :address), class: "form-control col-7" %>
+          </div>
+            <br>
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= radio_button_tag :address_pass, 2 %>
+              <%= label_tag :address_pass_2, "新しいお届け先" %>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div class="mb-3 row">
+              <div class="col-2"></div>
+              <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-sm-4 col-form-label" %>
+              <%= f.text_field :postcode, class:"form-control col-2" %>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-2"></div>
+              <%= f.label :address, "住所", class: "col-sm-4 col-form-label" %>
+              <%= f.text_field :address, class:"form-control col-5"  %>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-2"></div>
+              <%= f.label :name, "宛名", class: "col-sm-4 col-form-label" %>
+              <%= f.text_field :name, class:"form-control col-2"  %>
+            </div>
+          </div>
+          <div class="d-flex justify-content-around">
+            <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
+          </div>
+      <% end %>
 
-  <h2>お届け先</h2>
-  <%= radio_button_tag :address_pass, 0, checked: "checked" %>
-  <%= label_tag :address_pass_0, 'ご自身の住所' %>　　　　<!--各ボタンに番号を割り振り、コントローラーで場合分けする。-->
-  <%= current_end_user.postcode %><%= current_end_user.address %><br><%= current_end_user.last_name %><%= current_end_user.first_name %><br>
-  
-  <%= radio_button_tag :address_pass, 1 %>
-  <%= label_tag :address_pass_1, "登録済住所から選択" %><br>
-  <%= select_tag :address_id, options_from_collection_for_select(current_end_user.addresses, :id, :address) %><br>
-  
-  <%= radio_button_tag :address_pass, 2 %>
-  <%= label_tag :address_pass_2, "新しいお届け先" %><br>
-    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postcode %></p>
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address %></p>
-    <%= f.label :name, "宛名" %>
-    <%= f.text_field :name %></p>
-    <p><%= f.submit '確認画面へ進む' %></p>
-<% end %>
-
+    </div>
+  </div>
+</div>
