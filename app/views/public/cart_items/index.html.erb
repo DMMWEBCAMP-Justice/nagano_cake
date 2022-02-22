@@ -11,11 +11,13 @@
      <table border="2" width="1000">
          <thead>
           <tr bgcolor="#efefef">
+
            <th width="20%">商品名</th>
            <th width="10%">単価（税抜）</th>
            <th width="30%">数量</th>
            <th width="10%">小計</th>
            <th width="10%"></th>
+
           </tr>
          </thead>
          <tbody>
@@ -39,7 +41,7 @@
           <% end %>
          </tbody>
       </table>
-
+    
                <div class="row justify-content-end">
                  <div class="col-3">
                    <table border="2" width="145" height="50">
@@ -47,20 +49,20 @@
                    </table>
                   </div>
                 </div>
-
+    
               <div class="row justify-content-start">
                <div class="col-4">
                 <%= link_to root_path, class: 'btn btn-md btn-primary' do %>
                 買い物を続ける <% end %>
                </div>
               </div>
+    
               <div class="row justify-content-center">
                <div class="col-4">
                  <%= link_to new_order_path, class: 'btn btn-lg btn-success' do %>
                  情報入力に進む <% end %>
                </div>
               </div>
-
         </div>
       </div>
     </div>
