@@ -4,7 +4,7 @@
       <%= render 'public/genres/genre',genres: @genres %>
     </div>
       <div class='col-md-8 offset-md-1'>
-        <h2>商品一覧</h2>(全<%= @items.count %>件)
+        <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
         <tbody>
           <% @items.each do |item| %>
             <tr>

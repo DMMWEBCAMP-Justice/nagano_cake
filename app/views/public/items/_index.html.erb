@@ -1,0 +1,8 @@
+<div class="col-lg-3">
+     <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, size: "50x50" %>
+          <% end %>
+         <ul style="list-style: none;"><li><%= item.item_name %></li>
+         <li>¥<%= item.price %></li>
+         </ul>
+  </div>
