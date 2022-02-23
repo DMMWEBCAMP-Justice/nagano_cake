@@ -1,4 +1,3 @@
-
 <div class = "container">
   <div class = "row" >
     <div class = "col-8">
@@ -30,8 +29,8 @@
          <th><%= @end_user.email %></th>
        </tr>
       </table>
-       <p>配送先<%= link_to '一覧を見る',addresses_path(@end_user),class: "btn btn-primary"%></p>
-       <p>注文履歴<%= link_to '一覧を見る',orders_path(@end_user),class: "btn btn-primary"%></p>
+       <p>配送先<%= link_to '一覧を見る',addresses_path,class: "btn btn-primary"%></p>
+       <p>注文履歴<%= link_to '一覧を見る',orders_path,class: "btn btn-primary"%></p>
     </div>
   </div>
 </div>
