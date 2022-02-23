@@ -28,69 +28,69 @@
                   <!--</li>-->
 
                   <li>
-                  <%=link_to end_users_my_page_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                  <%=link_to end_users_my_page_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                   マイページ
                 <% end %>
                 </li>
                 <li>
-                  <%=link_to items_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                  <%=link_to items_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                   商品一覧
                 <% end %>
                 </li>
                 <li>
-                  <%=link_to cart_items_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                  <%=link_to cart_items_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                   カート
                   <% end %>
                 </li>
                 <li>
-                  <%=link_to destroy_end_user_session_path, method: :delete, class: "btn btn-light mx-2" 'nav-link text-muted' do %>
+                  <%=link_to destroy_end_user_session_path, method: :delete, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-muted' do %>
                     ログアウト
                   <% end %>
                 </li>
                   <% elsif admin_signed_in? %>
                 <li>
-                  <%=link_to admin_items_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                  <%=link_to admin_items_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                   商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%=link_to admin_end_users_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do  %>
+                  <%=link_to admin_end_users_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do  %>
                     会員一覧
                   <% end %>
                 </li>
                 <li>
-                  <%=link_to admin_orders_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do  %>
+                  <%=link_to admin_orders_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do  %>
                     注文履歴一覧
                   <% end %>
                 </li>
                 <li>
-                  <%=link_to admin_genres_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do  %>
+                  <%=link_to admin_genres_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do  %>
                   ジャンル一覧
                <% end %>
                </li>
                <li>
-                  <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mx-2" 'nav-link text-muted' do  %>
+                  <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-muted' do  %>
                   ログアウト
                    <% end %>
                 </li>
           <% else %>
               <li>
-                 <%=link_to home_about_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do  %>
+                 <%=link_to home_about_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do  %>
                  About
                  <% end %>
               </li>
               <li>
-                <%=link_to items_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                <%=link_to items_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                 商品一覧
                 <% end %>
               </li>
               <li>
-                 <%= link_to new_end_user_registration_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                 <%= link_to new_end_user_registration_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                  新規登録
                  <% end %>
               </li>
               <li>
-                 <%= link_to new_end_user_session_path, class: "btn btn-light mx-2" 'nav-link text-secondary' do %>
+                 <%= link_to new_end_user_session_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                  ログイン
                  <% end %>
               </li>
