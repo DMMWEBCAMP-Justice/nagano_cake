@@ -50,9 +50,9 @@
           <th><%= order_detail.amount %></th>
           <th><%= order_detail.item.with_tax_price * order_detail.amount %></th>
           <th>
-            <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(order_id: @order.id, id: order_detail.id), method: :patch, local: true) do |f| %>
+
+            <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(order_id: @order, id: order_detail.id), method: :patch, local: true) do |f| %>
              <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false} %>
-             <%= f.hidden_field :order_detail_id, :value => order_detail.making_status %>
              <%= f.submit "更新" ,class: "btn btn-primary" %>
             <% end %>
           </th>
