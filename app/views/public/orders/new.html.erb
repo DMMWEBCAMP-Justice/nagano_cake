@@ -51,7 +51,7 @@
             <div></div>
           </div>
           <div class="d-flex justify-content-around">
-            <%= select_tag :address_id, options_from_collection_for_select(current_end_user.addresses, :id, :address), class: "form-control col-7" %>
+            <%= select_tag :address_id, options_from_collection_for_select(@addresses, :id, :address_display), class: "form-control col-7" %>
           </div>
             <br>
           <div class="d-flex justify-content-around">
