@@ -3,8 +3,9 @@
     <div class='col-md-3'>
     <br><%= render 'public/genres/genre',genres: @genres %>
     </div>
-    <div class='col-md-8 offset-md-1'style="background: url(<%= asset_path "DSC_0796.jpeg" %>);">
-      <br><p class = "text-white d-flex align-items-center justify-content-center">ようこそ、ながのCAKEへ！
+    <div class='col-md-8 offset-md-1'>
+      <div class="jumbotron"style="background: url(<%= asset_path "DSC_0796.jpeg" %>);">
+      <br><p class = "text-center">ようこそ、ながのCAKEへ！
       <br>このサイトは、ケーキ販売のECサイトになります。
       <br>会員でない方も商品の閲覧はできますが、
       <br>購入には会員登録が必要になります。</p>
@@ -26,5 +27,6 @@
          <%=link_to items_path do %>
            全ての商品を見る＞
          <% end %>
+    </div>
   </div>
 </div>
