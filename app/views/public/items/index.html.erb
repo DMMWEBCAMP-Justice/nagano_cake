@@ -3,24 +3,15 @@
     <div class='col-md-3'>
       <%= render 'public/genres/genre',genres: @genres %>
     </div>
-      <div class='col-md-8 offset-md-1'>
+        <div class='d-flex flex-wrap  col-md-8 offset-md-1'>
         <h2>商品一覧</h2><p>(全<%= @items.count %>件)</p>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= link_to item_path(item.id) do %>
-                <%= image_tag item.image, size: "50x50" %>
+         <% @items.each do |item| %>
+          <%= link_to item_path(item.id) do %>
+                <%= image_tag item.image, size: "180x150" %>
                 <% end %>
-              </td>
-              <td>
-                <%= item.item_name %>
-              </td>
-              <td>
-                <%= item.price %>
-              </td>
-            </tr>
+                <p class="text-center"><%= item.item_name %>
+                <br>¥<%= item.price %></p>
             <% end %>
-        </tbody>
         <%= paginate @items %>
       </div>
   </div>
