@@ -9,7 +9,7 @@ class EndUser < ApplicationRecord
   has_many :cart_items, dependent: :destroy
 
   validates :postcode, presence: true, uniqueness: true, length: { minimum: 7, maximum: 7 }, numericality: {only_integer: true}
-  validates :first_name, presence: true, uniqueness: true
+  validates :first_name, presence: true
   validates :last_name, presence: true
   validates :first_name_kana, presence: true
   validates :last_name_kana, presence: true
