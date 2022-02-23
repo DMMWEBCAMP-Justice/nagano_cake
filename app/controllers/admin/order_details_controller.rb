@@ -4,7 +4,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail = OrderDetail.find(params[:id])
     @order = @order_detail.order
     @order_detail.update(order_detail_params)
-    @order.update(order_status: "making") if @order.order_details.where(making_status: "making").count == @order.order_details.count
+    @order.update(order_status: "making") if @order.order_details.find_by(making_status: "making").present?
     @order.update(order_status: "prepare") if @order.order_details.where(making_status: "finished").count == @order.order_details.count
     redirect_to request.referer
   end
