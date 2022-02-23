@@ -10,9 +10,9 @@
      </div>
      <table border="2" width="1000">
          <thead>
-          <tr bgcolor="#efefef">
+          <tr bgcolor="#efefef" height="50">
 
-           <th width="20%">商品名</th>
+           <th width="40%">商品名</th>
            <th width="10%">単価（税込）</th>
            <th width="30%">数量</th>
            <th width="10%">小計</th>
@@ -23,32 +23,32 @@
          <tbody>
 
           <% @cart_items.each do |cart_item| %>
-            <tr>
+            <tr height="50">
               <td><%= image_tag cart_item.item.image, size: "50x50" %>
               <%= cart_item.item.item_name %></td>
               <td><%= cart_item.item.with_tax_price %></td>
-              <td><%= form_for cart_item, url: cart_item_path(cart_item), method: :patch do |f| %>
+              <td align="center"><%= form_for cart_item, url: cart_item_path(cart_item), method: :patch do |f| %>
                     <%= f.number_field :amount, value:cart_item.amount %>
                     <%= f.hidden_field :item_id, :value => cart_item.item.id %>
                     <%= f.submit "変更", class:"btn btn-success" %>
                   <% end %>
               </td>
               <td><%= cart_item.subtotal%></td>
-              <td><%= link_to cart_item_path(cart_item.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
+              <td align="center"><%= link_to cart_item_path(cart_item.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
                    削除する<% end %>
               </td>
             </tr>
           <% end %>
          </tbody>
       </table>
-
+              <br>
                <div class="row justify-content-end">
                  <div class="col-3">
-                  
+
                    <table border="2" width="145" height="50">
                      <tr><th bgcolor="#efefef">合計金額</th><td><%= @total %></td></tr>
                    </table>
-                   
+
                   </div>
                 </div>
 
