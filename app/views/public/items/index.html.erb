@@ -1,27 +1,17 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <%= render 'public/genres/genre',genres: @genres %>
-    </div>
-      <div class='col-md-8 offset-md-1'>
-        <h2>商品一覧</h2>(全<%= @items.count %>件)
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= link_to item_path(item.id) do %>
-                <%= image_tag item.image, size: "50x50" %>
+<div class='container'>
+   <h2>商品一覧</h2>(全<%= @items.count %>件)
+   <div class='row m-5'>
+         <% @items.each do |item| %>
+          <div class="col-md-3">
+             <div class= 'card mb-4'>
+          <%= link_to item_path(item.id) do %>
+                <%= image_tag item.image, size: "180x150" %>
                 <% end %>
-              </td>
-              <td>
-                <%= item.item_name %>
-              </td>
-              <td>
-                <%= item.price %>
-              </td>
-            </tr>
+                <p class="text-center"><%= item.item_name %>
+                <br>¥<%= item.price %></p>
+              </div>
+           </div>
             <% end %>
-        </tbody>
         <%= paginate @items %>
-      </div>
   </div>
 </div>
