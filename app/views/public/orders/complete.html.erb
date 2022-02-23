@@ -1,10 +1,15 @@
 
 
-　
-　
+
+
 　<div class="container">
-    
-    <div class="text-dark d-flex align-items-center justify-content-center" style="height:300px;">
-      ご注文ありがとうございました！
+    <div class="text-secondary font-weight-bold d-flex align-items-center justify-content-center" style="height:200px;">
+       <h2>ご注文ありがとうございました！</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='col-md-2 mx-auto'>
+      <%= link_to '注文内容を確認する',orders_path(@end_user),class: "btn btn-info"%>
     </div>
   </div>
