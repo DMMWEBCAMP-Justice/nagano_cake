@@ -2,8 +2,8 @@ class Order < ApplicationRecord
   belongs_to :end_user
   has_many :order_details, dependent: :destroy
 
-  validates :postcode, presence: true, uniqueness: true, length: { minimum: 7, maximum: 7 }, numericality: {only_integer: true}
-  validates :address, presence: true, uniqueness: true
+  validates :postcode, presence: true, length: { minimum: 7, maximum: 7 }, numericality: {only_integer: true}
+  validates :address, presence: true
   validates :name, presence: true
 
 
