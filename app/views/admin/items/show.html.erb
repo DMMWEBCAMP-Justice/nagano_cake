@@ -1,61 +1,48 @@
-
-
-  <div class="container">
-   <div class="row justify-content-center">
-      <div class="col-6">
-
-
-        <h2 class="col-md-5 text-center"style="background-color: #efefef">商品詳細</h2>
-
-  <div class="d-flex align-items-center justify-content-center" style="height:400px;">
-         <%= image_tag @item.image, size: "200x200" %>
-
-
-      <table class="table table-hover table-inverse">
-        <tbody>
-
-           <tr>
-              <th>商品名</th>
-              <th><%= @item.item_name %></th>
-           </tr>
-           <tr>
-              <th>商品説明</th>
-              <th><%= @item.introduction %></th>
-           </tr>
-           <tr>
-              <th>ジャンル</th>
-              <th><%= @item.genre.genre_name %></th>
-           </tr>
-           <tr>
-              <th>税込価格<br>（税抜価格）</th>
-              <th><%= (@item.with_tax_price).floor %>(<%= @item.price %>)円</th>
-           </tr>
-           <tr>
-              <th>販売ステータス</th>
-              <th><% if @item.item_status==false %>
-                     <%= link_to '販売停止中', admin_item_path(@item.id, item: {item_status: false}), method: :put %>
-                   <% else %>
-                     <%= link_to '販売中', admin_item_path(@item.id, item: {item_status: true}), method: :put %>
-                   <% end %>
-              </th>
-              </th>
-           </tr>
-           </tbody>
-       </table>
-       </div>
-         <!--  <div class="col-md-5">-->
-         <!-- <#%= link_to edit_admin_item_path(@item.id), class: 'btn btn-success btn-lg' do %>-->
-         <!-- 編集する-<?% end %>->
-         <!--</div>-->
-
- 　     <div class="row justify-content-center">
-         <div class="col-4">
-          <%= link_to edit_admin_item_path(@item.id), class: 'btn btn-success btn-lg' do %>
-          編集する<% end %>
-         </div>
-        </div>
-
+<div class= "container">
+  <div class= "row">
+    <h3 class="col-4 text-center"><p style="background-color: #efefef">商品詳細</p></h3>
   </div>
- </div>
+  <div class= "row">
+    <div class= "col-3 d-flex align-items-center justify-content-center">
+      <%= image_tag @item.image, size: "460x300" %>
+    </div>
+    <div class= "col-8 offset-md-1">
+      <table class='table table-md-responsive'>
+        <tbody>
+          <tr>
+            <td class="text-nowrap">商品名</td>
+            <td><%= @item.item_name %></td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">商品説明</td>
+            <td class="text-break"><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">ジャンル</td>
+            <td><%= @item.genre.genre_name %></td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">税込価格<br>(税抜価格)</td>
+            <td><%= (@item.with_tax_price).floor %>(<%= @item.price %>)円</td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">販売ステータス</td>
+            <td>
+              <% if @item.item_status==false %>
+                <%= link_to '販売停止中', admin_item_path(@item.id, item: {item_status: false}), method: :put %>
+              <% else %>
+                <%= link_to '販売中', admin_item_path(@item.id, item: {item_status: true}), method: :put %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 offset-9">
+        <%= link_to edit_admin_item_path(@item.id), class: 'btn btn-success btn-lg' do %>
+          編集する<% end %>
+    </div>
+  </div>
 </div>
-
