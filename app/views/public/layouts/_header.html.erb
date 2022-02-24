@@ -7,13 +7,6 @@
             <%= image_tag 'rogo1', size: "80x80" %>
            <% end %> </span>
           </a>
-           <!-- <#% if end_user_signed_in? %>-->
-      　　  　<!--<div class= "container">-->
-        　　 <!-- 　<div class="d-flex align-items-center justify-content-center">-->
-          　<!--　    <p class="text-secondary">ようこそ、<#%= current_end_user.last_name %>さん！</p>-->
-        　　 <!--   </div>-->
-      　　   <!-- </div>-->
-           <!-- <#% end %>-->
 
       <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
       <!--<span class="navbar-toggler-icon"></span>-->
@@ -23,10 +16,6 @@
         <ul class="navbar-nav ml-auto">
 
              <% if end_user_signed_in? %>
-                  <!--<li>-->
-                  <!--<p class="text-secondary">ようこそ、<#%= current_end_user.last_name %>さん！</p>-->
-                  <!--</li>-->
-
                   <li>
                   <%=link_to end_users_my_page_path, class: "btn btn-light mx-2 rounded-pill" 'nav-link text-secondary' do %>
                   マイページ
