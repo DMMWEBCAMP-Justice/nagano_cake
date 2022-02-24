@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div>
       <h3 class="col-4 text-center"style="background-color: #efefef">注文履歴詳細</h3>
       <div class="d-flex justify-content-around">
         <div class="col-6">
@@ -46,7 +46,6 @@
           </table>
         </div>
       </div>
-      <br>
         <strong>注文内容</strong>
         <table border="2" width="1000">
         <tr bgcolor="#efefef" width="1000" height="50">
@@ -58,9 +57,9 @@
        <% @order_details.each do |order_detail| %>
          <tr height="50">
             <td><%= order_detail.item.item_name %></td>
-            <td><%= order_detail.item.with_tax_price %>円</td>
+            <td><%= order_detail.price %>円</td>
             <td><%= order_detail.amount %>個</td>
-            <td><%= (order_detail.subtotal * 1.1).floor %>円</td>
+            <td><%= order_detail.subtotal %>円</td>
           </tr>
         <% end %>
       </table>
