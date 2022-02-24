@@ -1,7 +1,9 @@
+
 <div class="container">
  <div class="row">
   <div class="col-md-12">
-   <h2 class="col-md-4 text-center"style="background-color: #efefef">ショッピングカート</h2>
+   <h3 class="col-md-4 text-center"style="background-color: #efefef">ショッピングカート</h3>
+   <% if @cart_items.present? %>
     <div class="row justify-content-end">
       <div class="col-3" style="height:50px;">
        <%= link_to cart_items_destroy_all_path, method: :delete, class: 'btn btn-sm btn-danger' do %>
@@ -65,9 +67,25 @@
                  情報入力に進む <% end %>
                </div>
               </div>
-        </div>
-      </div>
+            </div>
+          </div>
+       </div>
+      <% else %>
+     <br>
+     <div class="row">
+     <div class='col-md-10 offset-md-1 nothing_msg'>
+      <h5 class="text-center">ショッピングカートに商品が登録されていません。</h5>
+      <p class="text-center">「買い物を続ける」ボタンから、</br>商品を選択して、カートに追加してください。</p>
+     </div>
     </div>
+    <br>
+    <div class="row">
+     <div class='col-md-2 mx-auto'>
+      <%= link_to root_path, class: 'btn btn-md btn-info' do %>
+       買い物を続ける <% end %>
+     </div>
+    </div>
+     <% end %>
 
 
 
