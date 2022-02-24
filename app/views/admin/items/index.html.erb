@@ -1,0 +1,45 @@
+<div class="container">
+ <div class="row">
+
+  <div class="col-md-12">
+
+　 <div class="text-right">
+    <%= link_to new_admin_item_path do %>
+     <%= image_tag 'add-circle-outline', size: "30x30" %>
+    <% end %>
+   </div>
+
+    <h2 class="col-2 text-center"style="background-color: #efefef">商品一覧</h2>
+      <table class="table table-hover table-inverse">
+       <thead>
+         <tr bgcolor="#efefef">
+           <th>商品ID</th>
+           <th>商品名</th>
+           <th>税抜価格</th>
+           <th>ジャンル</th>
+           <th>ステータス</th>
+           <th colspan="5"></th>
+          </tr>
+         </thead>
+         <tbody>
+          <% @items.each do |item| %>
+          <tr>
+              <td><%= item.id %></td>
+              <td><%= link_to item.item_name, admin_item_path(item.id) %></td>
+              <td><%= item.price %></td>
+              <td><%= item.genre.genre_name %></td>
+              <td><%= item.item_status ? '販売中' : '販売停止中' %></td>
+           </tr>
+         　<% end %>
+        　</tbody>
+      　</table>
+      　<div class="row justify-content-center">
+          <div class="col-4">
+      　    <%= paginate @items %>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+
+

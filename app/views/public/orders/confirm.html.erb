@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4><span style="background-color: #efefef">注文情報確認</span></h4>
+      <div class="d-flex justify-content-around">
+        <table border="2" width="700">
+          <tr bgcolor="#efefef" height="50">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+          <% @cart_items.each do |cart_item| %>
+          <tr height="50">
+            <td width="43%"><%= image_tag cart_item.item.image, size: "30x30" %>&ensp;<%= cart_item.item.item_name %></td>
+            <td width="19%"><%= cart_item.item.with_tax_price %></td>
+            <td width="19%"><%= cart_item.amount %></td>
+            <td width="19%"><%= cart_item.subtotal%></td>
+          </tr>
+          <% end %>
+        </table>
+        <table border="2" width="250">
+          <tr height="50">
+            <th bgcolor="#efefef" width="50%">送料</th>
+            <td width="50%"><%= @shipping_cost %></td>
+          </tr>
+          <tr height="50">
+            <th bgcolor="#efefef">商品合計金額</th>
+            <td><%= @total %></td>
+          </tr>
+          <tr height="50">
+            <th bgcolor="#efefef">請求金額</th>
+            <td><%= @total + @shipping_cost %></td>
+          </tr>
+        </table>
+      </div>
+      <table>
+        <tr height="80">
+          <th width="300">支払方法</th>
+          <td width="500"><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr height="80">
+          <th>お届け先</th>
+          <td>
+            〒<%= @order.postcode %><%= @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
+      </table>
+      <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
+        <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+        <%= f.hidden_field :postcode, :value => @order.postcode %>
+        <%= f.hidden_field :address, :value => @order.address %>
+        <%= f.hidden_field :name, :value => @order.name %>
+        <%= f.hidden_field :shipping_cost, :value => @shipping_cost %>
+        <%= f.hidden_field :total_payment, :value => @total + @shipping_cost %>
+        <div class="d-flex justify-content-around">
+          <%= f.submit "注文を確定する", class: "btn btn-success col-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+ <h4 class="text-secondary">ジャンル検索</h4>
+      <div class=" d-flex flex-column bd-highlight mb-3">
+        <table class ="table">
+          <% genres.each do |genre| %>
+          <tr>
+            <td class="text-secondary">
+             <%= genre.genre_name %>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+      </div>

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="col-5"style="background-color: #efefef">
+        <%= @end_user.last_name %>
+        <%= @end_user.first_name %>
+        さんの会員詳細
+      </h2>
+      <table class="col-10">
+        <tr height="50">
+          <th>会員ID</th>
+          <td align="right"><%= @end_user.id %></td>
+        </tr>
+        <tr height="50">
+          <th>氏名</th>
+          <td align="right">
+            <%= @end_user.last_name %>
+            <%= @end_user.first_name %>
+          </td>
+        </tr>
+        <tr height="50">
+          <th>フリガナ</th>
+          <td align="right">
+            <%= @end_user.last_name_kana %>
+            <%= @end_user.first_name_kana %>
+          </td>
+        </tr>
+        <tr height="50">
+          <th>郵便番号</th>
+          <td align="right"><%= @end_user.postcode %></td>
+        </tr>
+        <tr height="50">
+          <th>住所</th>
+          <td align="right"><%= @end_user.address %></td>
+        </tr>
+        <tr height="50">
+          <th>電話番号</th>
+          <td align="right"><%= @end_user.phone_number %></td>
+        </tr>
+        <tr height="50">
+          <th>メールアドレス</th>
+          <td align="right"><%= @end_user.email %></td>
+        </tr>
+        <tr height="50">
+          <th>会員ステータス</th>
+          <td align="right"><%= @end_user.finished ? '退会' : '有効' %></td>
+        </tr>
+        <tr>
+           <td align="center"><%= link_to '編集する', edit_admin_end_user_path(@end_user.id), class: "btn btn-sm btn-success" %></td>
+           <td align="center"><%= link_to '注文履歴一覧を見る！', admin_orders_path, class: "btn btn-sm btn-primary" %></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
